@@ -1,0 +1,45 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<div class="copyright">
+	<div class="page-main">
+	    <div class="pull-left"><span><?php /* @escapeNotVerified */ echo $block->getCopyright() ?></span></div>
+	    <div class="pull-right hidden-xs"><?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('fasony_icon_pay')->toHtml();?></div>
+    </div>
+</div>
+
+<div id="top">
+    <a class="scrollup" href="javascript:void(0)">
+        <i class="fa fa-angle-up"></i>
+        <span><?php echo __('Top'); ?></span>
+    </a>
+</div>
+
+<script type="text/javascript">
+    require([
+        'jquery'
+        ],function(){
+            jQuery(document).ready(function($) {
+                if(jQuery(".scrollup").length > 0) {
+                    jQuery(document).ready(function(){
+                        jQuery(window).scroll(function(){
+                            if (jQuery(this).scrollTop() > 100) {
+                                jQuery('.scrollup').fadeIn();
+                            } else {
+                                jQuery('.scrollup').fadeOut();
+                            }
+                        });
+                        jQuery('.scrollup').click(function(){
+                            jQuery("html, body").animate({ scrollTop: 0 }, 600);
+                            return false;
+                        });
+                    });
+                }
+            });
+        });
+</script>
+
+

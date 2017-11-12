@@ -1,0 +1,19 @@
+<div id="ves-header"class="ves-header">
+	<?php echo $this->getChildHtml('skipToContent'); ?>
+	<div class="row no-margin">
+		<div class="col-md-2 col-sm-3 col-xs-5 custom-logo">
+			<?php echo $this->getChildHtml("logo"); ?>
+		</div>
+		<div class="col-md-7 col-sm-5 col-xs-2">
+			<?php echo $this->getChildHtml('catalog.topnav'); ?>
+			<!-- <?php //echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('fasony-menutop')->toHtml();?> -->
+		</div>
+		<div class="col-md-3 col-sm-4 col-xs-7 mobile-link">
+			<?php echo $this->getChildHtml('minicart'); ?>
+			<?php echo $this->getChildHtml("topSearch"); ?>
+			<?php echo $this->getChildHtml('setting_links') ?>
+			<?php echo $this->getChildHtml('toplinks'); ?>
+		</div>
+	</div>
+</div>
+

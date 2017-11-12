@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '';
+?>
+<div class="custom-group setting-links dropdown" id="setting-links<?php echo $id?>">
+	<a class="action toggle switcher-trigger" id="setting-links" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	  	<i class="fa fa-cog"> </i>
+	</a>
+
+    <div class="setting-links-options dropdown-menu" aria-labelledby="setting-links">
+        <div class="switcher-currency-wrapper">
+            <?php echo $this->getChildHtml('currency_custom') ?>
+        </div>
+        <div class="switcher-language-wrapper">
+            <?php echo $this->getChildHtml('store_language_custom') ?>
+        </div>
+    </div>
+</div>
+

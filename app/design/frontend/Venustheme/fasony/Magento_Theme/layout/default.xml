@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="string">auto</argument>
+                <argument name="logo_img_height" xsi:type="string">auto</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="top.links">
+            <arguments>
+                <argument name="template" xsi:type="string">Magento_Theme::html/account_links.phtml</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceContainer name="header.container">
+            <block class="Magento\Framework\View\Element\Template" name="ves_header" template="Magento_Theme::html/ves_header.phtml"  before="-">
+                <block class="Magento\Cms\Block\Block" name="menu-top" as="menutop">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">fasony-menutop</argument>
+                    </arguments>
+                </block>
+                
+                <!-- TOP LINKS: settings and navigation -->
+               <!-- <block class="Magento\Framework\View\Element\Template" name="setting_links" as="setting_links" template="Magento_Theme::html/setting.phtml">
+                    <block class="Magento\Store\Block\Switcher" name="store_language_custom" as="store_language_custom" template="switch/languages_custom.phtml" />
+                    <block class="Magento\Directory\Block\Currency" name="currency_custom" before="store_language_custom" template="currency_custom.phtml" />
+                </block> -->
+                <!-- END TOP LINKS: settings and navigation -->
+
+
+                <block class="Magento\Framework\View\Element\Text" name="store.links" group="navigation-sections">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Account</argument>
+                        <argument name="use_force" xsi:type="boolean">true</argument>
+                        <argument name="text" xsi:type="string"><![CDATA[<!-- Account links -->]]></argument>
+                    </arguments>
+                </block>
+                
+            </block>
+            <!-- <remove element="catalog.topnav"> -->
+
+        </referenceContainer>
+
+        <!-- <referenceBlock name="catalog.topnav"  remove="true"/> -->
+        
+       <move element="navigation.sections" name="ves.topmenu" destination="ves_header" as="catalog.topnav"/>
+
+        <move element="skip_to_content" as="skipToContent" destination="ves_header"/>
+       
+        <move element="minicart" destination="ves_header"/>
+        <move element="top.search" destination="ves_header"/>
+        <move element="logo" as="logo" destination="ves_header"/>
+        <move element="top.links" as="toplinks" destination="ves_header"/>
+
+
+        <referenceContainer name="footer-container">
+            <container name="footer-top" label="Footer Top" htmlTag="div" htmlClass="footer-top container" before="-">
+                <block class="Magento\Cms\Block\Block" name="fasony-footer">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">fasony-footer</argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <container name="footer" as="footer" label="Page Footer" htmlTag="div" htmlClass="footer">
+                <remove name="form.subscribe"/>
+                <block class="Magento\Theme\Block\Html\Footer" name="copyright" template="html/copyright.phtml"/>
+                <block class="Magento\Framework\View\Element\Template" name="report.bugs" template="Magento_Theme::html/bugreport.phtml" />
+            </container>
+
+        </referenceContainer>
+
+        <referenceContainer name="header.panel.wrapper" remove="true"/>
+        <referenceBlock name="report.bugs" remove="true"/>
+        <move element="copyright" destination="footer"/> 
+    </body>
+</page>

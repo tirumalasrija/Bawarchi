@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+    <update handle="catalog_product_opengraph" />
+    <update handle="page_calendar"/>
+    <body>
+    	<referenceContainer name="sidebar.main">
+        	<block class="Magento\Cms\Block\Block" name="fasony-custom-block" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">fasony-custom-block</argument>
+                </arguments>
+            </block>
+        	<block class="Magento\Cms\Block\Block" name="fasony-sidebar-products2" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">fasony-sidebar-products2</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="fasony-sidebar-banner" after="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">fasony-banner-sidebar</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
